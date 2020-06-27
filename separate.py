@@ -1,15 +1,15 @@
 import os
 import sys
 
-array = sys.argv
-array.pop(0)
-print(array)
-inicial = 1
-final = 1
+pathArqTeste = '/home/ellian/Documents/lifecon/orgDocuments/fever/exemplo/teste'
+array = os.listdir(pathArqTeste)
+# array = sys.argv
+# array.pop(0)
+# print(array)
+indice = 1
 
 for nomeDoPdf in array:
-    stringArguments = 'pdfseparate -f {} -l {} \"{}\" \"%d-{}\"'.format(inicial,final,nomeDoPdf,nomeDoPdf)
+    os.system('cd {};pwd'.format(pathArqTeste))
+    stringArguments = 'pdfseparate -f {} -l {} \'{}\' \'%d-{}\''.format(indice,indice,nomeDoPdf,nomeDoPdf)
     print(stringArguments)
     os.system(stringArguments)
-    inicial +=1
-    final+=1
