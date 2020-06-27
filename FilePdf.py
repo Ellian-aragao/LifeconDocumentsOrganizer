@@ -25,19 +25,22 @@ class FilesPdf:
 
     def fileAttributesExtractor(self):
         arrayAttributes = self.nameFile.split('-')
-        if len(arrayAttributes) == 5:
+        lenAtttributes = len(arrayAttributes)
+        if lenAtttributes == 5:
             self.pdf.bank = arrayAttributes[0]
             self.pdf.contract = arrayAttributes[1]
             self.pdf.description = arrayAttributes[2]
             self.pdf.cost = arrayAttributes[3]
             self.strToDate(arrayAttributes[4])
             
-        else:
+        elif lenAtttributes == 4:
             self.pdf.bank = arrayAttributes[0]
             self.pdf.contract = ''
             self.pdf.description = arrayAttributes[1]
             self.pdf.cost = arrayAttributes[2]
             self.strToDate(arrayAttributes[3])
+        else:
+            raise FileNameError(self.fullPath)
 
 if __name__ == "__main__":
     path = '/home/ellian/Documents/lifecon/orgDocuments/arqu/exemplo/(?) - DANFE - PRESTACAO DE SERVICO - 45.263,16 - 01.02.2017.pdf'
