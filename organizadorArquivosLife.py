@@ -38,6 +38,14 @@ def testForMakedirMoveFile():
     move('{}{}'.format(pathArqTeste, 'teste2.txt'),
          '{}{}'.format(pathArqTeste, 'teste/'))
 
+if __name__ == "__main__":
+    path = '/home/ellian/Documents/lifecon/orgDocuments/fever'
+    arrayPaths = findFiles(path)
+    arrayObjects = []
+    for pathPdf in arrayPaths:
+        # print(pathPdf)
+        try:
+            arrayObjects.append(FilesPdf(pathPdf))
+        except Exception as erro:
+            print('ERRO -> {}'.format(erro))
 
-path = '/home/ellian/Documents/lifecon/orgDocuments/arqu/exemplo'
-testForMakedirMoveFile()
