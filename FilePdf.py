@@ -1,5 +1,5 @@
 from PdfAttributes import Date,PdfAttributes
-
+from Error import FileNameError
 
 class FilesPdf:
 
@@ -44,3 +44,5 @@ class FilesPdf:
 
 if __name__ == "__main__":
     path = '/home/ellian/Documents/lifecon/orgDocuments/arqu/exemplo/(?) - DANFE - PRESTACAO DE SERVICO - 45.263,16 - 01.02.2017.pdf'
+    pdf = FilesPdf(path)
+    print(pdf)
