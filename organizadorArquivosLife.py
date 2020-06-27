@@ -8,6 +8,8 @@ def findFiles(absolute_path):
     arrayDirOrFiles = listdir(absolute_path)
     files = []
     for oneFileOrDir in arrayDirOrFiles:
+        if 'backup' == oneFileOrDir.lower():
+            continue
         fullPath = '{}/{}'.format(absolute_path, oneFileOrDir)
         if isdir(fullPath):
             array = findFiles(fullPath)
