@@ -32,7 +32,7 @@ class FilesPdf:
             self.pdf.description = arrayAttributes[2]
             self.pdf.cost = arrayAttributes[3]
             self.strToDate(arrayAttributes[4])
-            
+
         elif lenAtttributes == 4:
             self.pdf.bank = arrayAttributes[0]
             self.pdf.contract = ''
