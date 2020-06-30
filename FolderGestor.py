@@ -20,5 +20,6 @@ if __name__ == "__main__":
     folderObj = FolderGestor(path)
     bank = 'BB'
     folderObj.appendBank(bank)
-    folderObj.banks[bank].append(['01', '02', '03', '04'])
+    for month in ['01', '02', '03', '04']:
+        folderObj.appendMonth(bank,month)
     print(folderObj.banks)
