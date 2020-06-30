@@ -20,32 +20,44 @@ def findFiles(absolute_path):
     return files
 
 
-def testForMakedirMoveFile():
+def testForMakedirMoveFile(base_path, pdfObject):
+    
+    """
     arqName = 'teste.txt'
     pathArqTeste = '/home/ellian/code/LifeconDocumentsOrganizer/'
-    # try:
-    #     print('criado o diretório')
-    #     mkdir('teste')
-    #     input()
-    #     print('movendo pasta')
-    #     move('{}{}'.format(pathArqTeste, arqName),
-    #          '{}{}'.format(pathArqTeste, 'teste/'))
-    #     input()
-    #     removedirs('../teste')
-    # except Exception as identifier:
-    #     print('erro -> {}'.format(identifier))
+    try:
+        print('criado o diretório')
+        mkdir('teste')
+        input()
+        print('movendo pasta')
+        move('{}{}'.format(pathArqTeste, arqName),
+             '{}{}'.format(pathArqTeste, 'teste/'))
+        input()
+        removedirs('../teste')
+    except Exception as identifier:
+        print('erro -> {}'.format(identifier))
     rename('{}{}'.format(pathArqTeste, arqName), 'teste2.txt')
     move('{}{}'.format(pathArqTeste, 'teste2.txt'),
          '{}{}'.format(pathArqTeste, 'teste/'))
+    """
 
-if __name__ == "__main__":
-    path = '/home/ellian/Documents/lifecon/orgDocuments/fever'
-    arrayPaths = findFiles(path)
+
+def createArrayPdfsObjects(arrayPaths):
     arrayObjects = []
     for pathPdf in arrayPaths:
-        # print(pathPdf)
-        try:
-            arrayObjects.append(FilesPdf(pathPdf))
-        except Exception as erro:
-            print('ERRO -> {}'.format(erro))
+        arrayObjects.append(createPdfObject(pathPdf))
+    return arrayObjects
 
+
+def createPdfObject(pathPdf):
+    try:
+        return FilesPdf(pathPdf)
+    except Exception as erro:
+        print('ERRO -> {}'.format(erro))
+
+
+if __name__ == "__main__":
+    path = '/home/ellian/Documents/lifecon/orgDocuments/fever/teste'
+    # mkdir('{}/fileByPython'.format(path))
+    arrayPaths = findFiles(path)
+    arrayPdfs = createArrayPdfsObjects(arrayPaths)

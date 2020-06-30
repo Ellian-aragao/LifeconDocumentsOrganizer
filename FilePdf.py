@@ -41,8 +41,3 @@ class FilesPdf:
             self.strToDate(arrayAttributes[3])
         else:
             raise FileNameError(self.fullPath)
-
-if __name__ == "__main__":
-    path = '/home/ellian/Documents/lifecon/orgDocuments/arqu/exemplo/(?) - DANFE - PRESTACAO DE SERVICO - 45.263,16 - 01.02.2017.pdf'
-    pdf = FilesPdf(path)
-    print(pdf)
