@@ -10,6 +10,7 @@ class FolderGestor:
             self.banks.update({bank: []})
 
     def appendMonth(self, bank, month):
+        bank = bank.upper()
         if not month in self.banks[bank]:
             self.banks[bank].append(month)
 
