@@ -21,5 +21,5 @@ if __name__ == "__main__":
     bank = 'BB'
     folderObj.appendBank(bank)
     for month in ['01', '02', '03', '04']:
-        folderObj.appendMonth(bank,month)
+        folderObj.appendMonth(bank, month)
     print(folderObj.banks)

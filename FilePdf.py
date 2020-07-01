@@ -1,14 +1,13 @@
-from PdfAttributes import Date,PdfAttributes
+from PdfAttributes import Date, PdfAttributes
 from Error import FileNameError
+
 
 class FilesPdf:
 
     def __init__(self, fullPath):
         self.fullPath = fullPath
-        self.pdf = PdfAttributes()
         self.pathFileSeparate()
         self.fileAttributesExtractor()
-
 
     def pathFileSeparate(self):
         arrayFullPath = self.fullPath.rsplit('/', 1)
@@ -20,7 +19,6 @@ class FilesPdf:
         strDate = strDate.split('.')
         strDate.pop(-1)
         return'.'.join(strDate)
-
 
     def fileAttributesExtractor(self):
         arrayAttributes = self.nameFile.split('-')
