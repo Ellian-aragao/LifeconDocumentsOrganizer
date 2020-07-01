@@ -12,7 +12,12 @@ class FolderGestor:
     def appendMonth(self, bank, month):
         bank = bank.upper()
         if not month in self.banks[bank]:
-            self.banks[bank].append(month)
+            self.banks[bank].update({month: list()})
+
+    def appendDay(self, bank, month, day):
+        bank = bank.upper()
+        if not month in self.banks[bank][month]:
+            self.banks[bank][month].append(day)
 
 
 if __name__ == "__main__":
@@ -22,4 +27,5 @@ if __name__ == "__main__":
     folderObj.appendBank(bank)
     for month in ['01', '02', '03', '04']:
         folderObj.appendMonth(bank, month)
+        folderObj.appendDay(bank, month, month)
     print(folderObj.banks)
