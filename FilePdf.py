@@ -17,10 +17,9 @@ class FilesPdf:
         self.pathDir = '/'.join(arrayFullPath)
     
     def strToDate(self, strDate):
-        infoDate = strDate.split('.')
-        self.pdf.date.day = infoDate[0]
-        self.pdf.date.month = infoDate[1]
-        self.pdf.date.year = infoDate[2]
+        strDate = strDate.split('.')
+        strDate.pop(-1)
+        return'.'.join(strDate)
 
 
     def fileAttributesExtractor(self):
