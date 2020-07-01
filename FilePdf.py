@@ -15,7 +15,7 @@ class FilesPdf:
         self.nameFile = arrayFullPath[-1]
         arrayFullPath.pop(-1)
         self.pathDir = '/'.join(arrayFullPath)
-    
+
     def strToDate(self, strDate):
         strDate = strDate.split('.')
         strDate.pop(-1)
@@ -26,17 +26,22 @@ class FilesPdf:
         arrayAttributes = self.nameFile.split('-')
         lenAtttributes = len(arrayAttributes)
         if lenAtttributes == 5:
-            self.pdf.bank = arrayAttributes[0]
-            self.pdf.contract = arrayAttributes[1]
-            self.pdf.description = arrayAttributes[2]
-            self.pdf.cost = arrayAttributes[3]
-            self.strToDate(arrayAttributes[4])
+            self.pdf = PdfAttributes(
+                arrayAttributes[0],
+                arrayAttributes[1],
+                arrayAttributes[2],
+                arrayAttributes[3],
+                self.strToDate(arrayAttributes[4])
+            )
 
         elif lenAtttributes == 4:
-            self.pdf.bank = arrayAttributes[0]
-            self.pdf.contract = ''
-            self.pdf.description = arrayAttributes[1]
-            self.pdf.cost = arrayAttributes[2]
-            self.strToDate(arrayAttributes[3])
+            self.pdf = PdfAttributes(
+                arrayAttributes[0],
+                '',
+                arrayAttributes[1],
+                arrayAttributes[2],
+                self.strToDate(arrayAttributes[3])
+            )
+
         else:
             raise FileNameError(self.fullPath)
