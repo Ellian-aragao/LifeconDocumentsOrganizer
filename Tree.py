@@ -1,4 +1,4 @@
-class FolderGestor:
+class Tree:
     def __init__(self, root):
         self.root = root
         self.banks = dict()
@@ -23,22 +23,10 @@ class FolderGestor:
         if not day in self.banks[bank][month][day]:
             self.banks[bank][month][day].append(file)
 
-    def bankToArray(self):
-        return self.banks.keys()
-
-    def monthToArray(self, bank):
-        return self.banks[bank].keys()
-
-    def dayToArray(self, bank, month):
-        return self.banks[bank][month].keys()
-
-    def fileToArray(self, bank, month, day):
-        return self.banks[bank][month][day]
-
 
 if __name__ == "__main__":
     path = '/home/ellian/Documents/lifecon/orgDocuments/fever/teste'
-    folderObj = FolderGestor(path)
+    folderObj = Tree(path)
     bank = 'BB'
     for month in ['01', '02', '03']:
         folderObj.appendDay(bank, month, month)

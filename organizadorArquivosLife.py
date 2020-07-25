@@ -57,7 +57,7 @@ def createPdfObject(pathPdf):
 
 
 if __name__ == "__main__":
-    path = '/home/ellian/Documents/lifecon/orgDocuments/fever/teste'
+    path = '/home/ellian/Documents/lifecon/orgDocuments'
     # mkdir('{}/fileByPython'.format(path))
     arrayPaths = findFiles(path)
     arrayPdfs = createArrayPdfsObjects(arrayPaths)
